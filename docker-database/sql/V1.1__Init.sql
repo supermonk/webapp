@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS test.USER (
+    id VARCHAR(64),
+    fname VARCHAR(256),
+    lname VARCHAR(256),
+    CONSTRAINT pk PRIMARY KEY (id)
+);

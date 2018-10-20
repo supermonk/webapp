@@ -1,0 +1,7 @@
+---
+health-status:
+    output:
+        server: supermonk-service
+        buildNum: "1.0.0"
+        date: "`r format(Sys.time(), '%d %B, %Y')`"
+        clNum: ""
