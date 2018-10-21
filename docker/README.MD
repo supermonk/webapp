@@ -65,6 +65,4 @@ docker volume rm $(docker volume ls -qf dangling=true)
 5. https://github.com/nimmis/docker-java-centos 
 
 ## Creator
-![supermonk](https://github.com/supermonk)
-<p align="center"><img width=50% src="https://avatars3.githubusercontent.com/u/5060860?s=400&u=06fa0ee43a0830f9c038e49468e258319c316437&v=4"></p>
-<br>
+![supermonk](https://avatars3.githubusercontent.com/u/5060860?s=200&u=06fa0ee43a0830f9c038e49468e258319c316437&v=2)
