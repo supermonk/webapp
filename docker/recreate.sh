@@ -85,3 +85,4 @@ echo "GO TO http://localhost:5601/app/kibana#/management?_g=() and do regular st
 #    "timeFieldName": "execution_time"
 #  }
 #}'
+
