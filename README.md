@@ -1,7 +1,7 @@
 # Webapp
 ## Basic Overview
 ```text
-Pragmatic Dockersied End to End Webapp
+Pragmatic Dockerised End to End Webapp
 1. API
     a. SpringBoot API
     b. LogAppender to send logs to Elastic
@@ -12,7 +12,7 @@ Pragmatic Dockersied End to End Webapp
     a. Elastic 
     b. Kibana
 ```
-##Prerequsite
+## Prerequsite
 ```text
 1. Java
 2. Docker 
