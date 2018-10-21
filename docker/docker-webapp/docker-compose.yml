@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+    supermonk-webapp:
+        container_name: supermonk-springboot-app
+        image: supermonk-springboot-app:latest
+        ports:
+            - 8301:8301
+        volumes:
+             - /tmp/webapp/var:/var/log
+        networks:
+              - docker-monitoring_elk-net
+              - docker-database_redis-net
+              - docker-database_mysql-net
+networks:
+  docker-monitoring_elk-net:
+    external: true
+  docker-database_redis-net:
+    external: true
+  docker-database_mysql-net:
+    external: true

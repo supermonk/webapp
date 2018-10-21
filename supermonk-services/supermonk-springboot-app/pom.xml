@@ -72,8 +72,33 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-redis</artifactId>
 		</dependency>
+
+
+		<!-- logging for elastic Search -->
+		<!-- https://mvnrepository.com/artifact/org.logback-extensions/logback-ext-loggly -->
+		<dependency>
+			<groupId>org.logback-extensions</groupId>
+			<artifactId>logback-ext-loggly</artifactId>
+			<version>0.1.5</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/ch.qos.logback.contrib/logback-json-classic -->
+		<dependency>
+			<groupId>ch.qos.logback.contrib</groupId>
+			<artifactId>logback-json-classic</artifactId>
+			<version>0.1.5</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/ch.qos.logback.contrib/logback-jackson -->
+		<dependency>
+			<groupId>ch.qos.logback.contrib</groupId>
+			<artifactId>logback-jackson</artifactId>
+			<version>0.1.5</version>
+		</dependency>
+
+
+
+
 	</dependencies>
-	
+
 
 	<build>
 		<plugins>
@@ -187,7 +212,7 @@
 					</resources>
 				</configuration>
 			</plugin>
-			
+
 		</plugins>
 	</build>
 
