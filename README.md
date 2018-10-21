@@ -46,10 +46,8 @@ sh destroy.sh
 3. https://gist.github.com/bastman/5b57ddb3c11942094f8d0a97d461b430 
 
 ## Creator
-```bash
-@supermonk
-```
-<p align="center"><img width=95% src=""></p>
+![supermonk](https://github.com/supermonk)
+<p align="center"><img width=50% src="https://avatars3.githubusercontent.com/u/5060860?s=400&u=06fa0ee43a0830f9c038e49468e258319c316437&v=4"></p>
 <br>
 #### Output
 ```text
