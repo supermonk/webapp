@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="100 seconds" debug="true" >
+<!-- debug="true" -->
+
+
+	<!-- file appender -->
+	<property name="LOG_FILE" value="/var/log/supermonk-api-gateway.log" />
+	<property name="ELASTIC_LOG_FILE"
+		value="/var/log/elastic.log" />
+		
+		<springProperty scope="context" name="APP_NAME" source="spring.application.name"/> 
+
+	<!-- file patterns -->
+	<property name="LOG_PATTERN"
+		value="%d{yyyy-MM-dd HH:mm:ss.SSS} %-4relative [%thread] %-5level %logger{35}.%M \\(%line\\)  - %msg%n" /> 
+		
+	<property name="JSON_LOG_PATTERN"
+		value="{&quot;appName&quot;: &quot;${APP_NAME}&quot;, &quot;time&quot;: &quot;%d{yyyy-MM-dd HH:mm:ss.SSS}&quot;, &quot;thread&quot;: &quot;%-4relative [%thread]&quot;, &quot;logLevel&quot;: &quot;%-5level&quot;, &quot;location&quot;:&quot;%logger{35}.%M.%line&quot;, &quot;message&quot;:&quot;%msg&quot; }%n" /> 
+	
+	<conversionRule conversionWord="clr"
+		converterClass="org.springframework.boot.logging.logback.ColorConverter" />
+	<conversionRule conversionWord="wex"
+		converterClass="org.springframework.boot.logging.logback.WhitespaceThrowableProxyConverter" />
+
+
+	<!-- appenders -->
+	
+<!-- 	<appender name="ES" class="ch.qos.logback.ext.loggly.LogglyAppender">
+	    <endpointUrl>http://supermonk-elk:9200/supermonk/webapp?pipeline=logback</endpointUrl>
+	    <layout class="ch.qos.logback.contrib.json.classic.JsonLayout">
+	    	<jsonFormatter class="ch.qos.logback.contrib.jackson.JacksonJsonFormatter">
+	    	</jsonFormatter>
+        </layout>
+	    <pattern>${JSON_LOG_PATTERN}</pattern>
+	</appender>  -->
+
+
+	<appender name="ElasticJson"
+		class="ch.qos.logback.core.rolling.RollingFileAppender"> 
+		<encoder > 
+          <pattern>${JSON_LOG_PATTERN}</pattern>
+		</encoder>
+		<file>${ELASTIC_LOG_FILE}</file>
+		<rollingPolicy
+			class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+			<minIndex>1</minIndex>
+			<maxIndex>100</maxIndex>
+			<fileNamePattern>${ELASTIC_LOG_FILE}.%i</fileNamePattern>
+		</rollingPolicy>
+		<triggeringPolicy
+			class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+			<MaxFileSize>100MB</MaxFileSize>
+		</triggeringPolicy>
+	</appender>
+
+	<appender name="CONSOLE"
+		class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>${LOG_PATTERN}</pattern>
+		</encoder>
+	</appender>
+
+
+	<appender name="FILE"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<encoder>
+			<pattern>${LOG_PATTERN}</pattern>
+		</encoder>
+		<file>${LOG_FILE}</file>
+		<rollingPolicy
+			class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+			<minIndex>1</minIndex>
+			<maxIndex>100</maxIndex>
+			<fileNamePattern>${LOG_FILE}.%i</fileNamePattern>
+		</rollingPolicy>
+		<triggeringPolicy
+			class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+			<MaxFileSize>100MB</MaxFileSize>
+		</triggeringPolicy>
+	</appender>
+
+
+
+
+
+	<!-- root logger -->
+	<root level="DEBUG">
+		<!-- <appender-ref ref="CONSOLE" /> -->
+		<appender-ref ref="FILE" />
+		<appender-ref ref="ElasticJson" />
+		<!-- <appender-ref ref="ES"/> -->
+
+	</root>
+	<!-- <logger name="ElasticJson" level="INFO" additivity="false"> <appender-ref 
+		ref="ElasticJson" /> </logger> -->
+
+</configuration>

@@ -11,23 +11,19 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.0.5.RELEASE</version>
+        <version>2.0.6.RELEASE</version>
         <relativePath /> <!-- lookup parent from repository -->
     </parent>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <start-class>com.supermonk.cloud.Application</start-class>
+        
         <java.version>1.8</java.version>
-        <spring.boot.version>2.0.5.RELEASE</spring.boot.version>
+        <spring.boot.version>2.0.6.RELEASE</spring.boot.version>
         <org.codehaus.mojo.rpm.maven.plugin.version>2.1.5</org.codehaus.mojo.rpm.maven.plugin.version>
         <org.codehaus.mojo.jaxb2.maven.plugin.version>2.3.1</org.codehaus.mojo.jaxb2.maven.plugin.version>
-
-        <!-- Log Appenders-->
-        <org.apache.kafka.version>0.10.1.1</org.apache.kafka.version>
-        <kafka.appender.version>0.1.0</kafka.appender.version>
-        <redis.spring>2.0.4.RELEASE</redis.spring>
+ 
 
         <!-- Swagger -->
         <swagger.version>2.9.2</swagger.version>
@@ -58,10 +54,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -72,6 +64,7 @@
 
     <modules>
         <module>supermonk-springboot-app</module>
+        <module>supermonk-api-gateway-registry</module>
     </modules>
 
     <build>

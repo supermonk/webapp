@@ -6,7 +6,7 @@
     <version>1.0.0</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
-  <artifactId>supermonk-springboot-app</artifactId>
+  <artifactId>supermonk-api-gateway-registry</artifactId>
   <build>
     <plugins>
       <plugin>
@@ -125,15 +125,16 @@
       <scope>provided</scope>
     </dependency>
     <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-data-redis</artifactId>
-      <version>2.0.6.RELEASE</version>
-      <scope>provided</scope>
+      <groupId>org.springframework.cloud</groupId>
+      <artifactId>spring-cloud-starter-parent</artifactId>
+      <version>Finchley.RELEASE</version>
+      <type>pom</type>
+      <scope>compile</scope>
     </dependency>
     <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-web</artifactId>
-      <version>2.0.6.RELEASE</version>
+      <groupId>org.springframework.cloud</groupId>
+      <artifactId>spring-cloud-gateway-core</artifactId>
+      <version>2.0.2.RELEASE</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
@@ -157,6 +158,12 @@
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-actuator</artifactId>
+      <version>2.0.6.RELEASE</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
       <version>2.0.6.RELEASE</version>
       <scope>provided</scope>
     </dependency>
@@ -225,11 +232,11 @@
     </dependencies>
   </dependencyManagement>
   <properties>
+    <spring-cloud.version>Finchley.RC2</spring-cloud.version>
     <docker.image.prefix>supermonk</docker.image.prefix>
-    <docker.version>1.0</docker.version>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <java.version>1.8</java.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <start-class>com.supermonk.cloud.Application</start-class>
   </properties>
 </project>
 

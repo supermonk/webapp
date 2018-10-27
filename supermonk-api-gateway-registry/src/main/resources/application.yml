@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: supermonk-api-gateway-registry
+
+server:
+  port: 8300
+
+env: dev
+
+spring:
+  cloud:
+    gateway:
+      routes:
+      - id: baeldung_route
+        uri: http://www.baeldung.com
+        predicates:
+        - Path=/baeldung
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
