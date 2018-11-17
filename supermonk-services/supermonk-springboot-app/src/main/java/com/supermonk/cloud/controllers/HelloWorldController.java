@@ -10,7 +10,7 @@ public class HelloWorldController {
 
 	private static final Logger logger = LoggerFactory.getLogger(HelloWorldController.class);
 
-	@GetMapping("/")
+	@GetMapping("/hello")
 	public String home() {
 		logger.info(" Request {}", "Hello World");
 		return "Hello world";

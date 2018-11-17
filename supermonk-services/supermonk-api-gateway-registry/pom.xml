@@ -4,7 +4,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<artifactId>supermonk-springboot-app</artifactId>
+	<artifactId>supermonk-api-gateway-registry</artifactId>
 
 	<parent>
 		<groupId>com.supermonk.cloud</groupId>
@@ -19,38 +19,60 @@
 		<java.version>1.8</java.version>
 		<docker.version>1.0</docker.version>
 
+		<!-- Swagger -->
+		<swagger.version>2.9.2</swagger.version>
+
+		<!-- PMD -->
+		<pmd.version>3.6</pmd.version>
+
+		<!-- OWASP -->
+		<!-- https://mvnrepository.com/artifact/org.owasp/dependency-check-core -->
+		<owasp.version>3.3.2</owasp.version>
+
+		<!-- docker -->
+		<docker.image.prefix>supermonk</docker.image.prefix>
+		<spring-cloud.version>1.4.6.RELEASE</spring-cloud.version>
+
 	</properties>
 
 
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>Finchley.RELEASE</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 
 	<dependencies>
 
-		<!--Swagger -->
+		<!-- API Gateway -->
+
+		<!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-zuul -->
 		<dependency>
-			<groupId>io.springfox</groupId>
-			<artifactId>springfox-swagger2</artifactId>
-			<version>${swagger.version}</version>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-zuul</artifactId>
+			<version>${spring.zuul.server.version}</version>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-eureka-server -->
 		<dependency>
-			<groupId>io.springfox</groupId>
-			<artifactId>springfox-swagger-ui</artifactId>
-			<version>${swagger.version}</version>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-eureka-server</artifactId>
+			<version>${spring.zuul.server.version}</version>
 		</dependency>
-		<!-- Swagger -->
-
-		<!-- Redis -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-redis</artifactId>
-		</dependency>
-
-
-		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-actuator -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-actuator</artifactId> 
+			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
+	<!-- 	<dependency>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-starter-security</artifactId>
+</dependency> -->
 
 
 
@@ -142,10 +164,10 @@
 									<location>target/${project.artifactId}-${project.version}.jar</location>
 									<destination>target/${project.artifactId}-${project.version}.jar</destination>
 								</source>
-								<!-- <source>
+								<source>
 									<location>healthstatus.yaml</location>
 									<destination>jars/${project.artifactId}-${project.version}.jar</destination>
-								</source> -->
+								</source>
 							</sources>
 						</mapping>
 					</mappings>

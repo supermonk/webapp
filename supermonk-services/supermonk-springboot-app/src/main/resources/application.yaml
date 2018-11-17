@@ -10,3 +10,20 @@ redis:
     expiryseconds: 20
 
 env: dev
+
+management:
+  security:
+    enabled: false
+  trace:
+    include: remote_address, parameters
+  endpoints:
+    web:
+      exposure:
+        include: heapdump,liquibase,loggers,prometheus,threaddump,info,metrics,health
+  health:
+    db:
+      enabled: true
+    defaults:
+      enabled: true
+    diskspace:
+      enabled: true

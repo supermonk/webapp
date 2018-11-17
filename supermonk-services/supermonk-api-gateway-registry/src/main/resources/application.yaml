@@ -1,0 +1,48 @@
+spring:
+  application:
+    name: supermonk-eureka
+
+server:
+  port: 8300
+
+env: dev
+
+
+eureka:
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    server:
+      waitTimeInMsWhenSyncEmpty: 0
+
+zuul:
+  #Service will be mapped under the /api URI
+  prefix: /api/supermonk/services
+  routes:
+    stock-service:
+      path: /**
+      url: http://localhost:8301
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: /*
+      expose: health, beans, trace, info, metrices
+  #security:
+  #  enabled: false
+  #  roles: ACTUATOR
+  #context-path: /actuator  
+  #basic: true 
+  #user:
+  #  name: act
+  #  password: act
+
+    health:
+      sensitive: false
+
+endpoints:
+  health:
+      sensitive: false
+
+      

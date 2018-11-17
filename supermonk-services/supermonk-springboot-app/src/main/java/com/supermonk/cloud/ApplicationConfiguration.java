@@ -41,4 +41,6 @@ public class ApplicationConfiguration implements WebMvcConfigurer {
 		registry.addResourceHandler(SWAGGER_UI_HTML).addResourceLocations(CLASSPATH_RESOURCES);
 		registry.addResourceHandler(WEBJARS).addResourceLocations(CLASSPATH_WEBJARS);
 	}
+
+	 
 }

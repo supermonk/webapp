@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: supermonk-spring-template
+
+server:
+  port: 8301
+
+redis:
+  config:
+    expiryseconds: 20
