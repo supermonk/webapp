@@ -15,7 +15,7 @@ Dockerised Infrastrcuture
 ## Prerequsite
 ```text
 1. Java
-2. Docker 
+2. Docker version : https://download.docker.com/mac/stable/26764/Docker.dmg  18.06.1-ce-mac73 2018-08-29 
 3. Developer Mindset
 4. Maven 
 ```
