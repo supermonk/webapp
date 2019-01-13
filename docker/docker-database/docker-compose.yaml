@@ -10,11 +10,11 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=P@ssw0rd
       - MYSQL_ROOT_HOST=%
-      - MYSQL_DATABASE=test
+      - MYSQL_DATABASE=ecommerce
     ports:
       - "3306:3306"
-    networks:
-      - mysql-net
+#    networks:
+#      - mysql-net
     healthcheck:
       test: ["CMD-SHELL", "nc -z 127.0.0.1 3306 || exit 1"]
       interval: 1m30s
@@ -23,31 +23,31 @@ services:
 
   # Redis Service for caching any intermediate data
   supermonk-redis:
-      container_name: supermonk-redis
-      image: redis
-      command: ["redis-server", "--appendonly", "yes"]
-      hostname: redis
-      networks:
-        - redis-net
-      volumes:
-        - redis-data:/data
-      ports:
-        - "6379:6379"
+    container_name: supermonk-redis
+    image: redis
+    command: ["redis-server", "--appendonly", "yes"]
+    hostname: redis
+#    networks:
+#      - redis-net
+#    volumes:
+#      - redis-data:/data
+    ports:
+      - "6379:6379"
 
   # Flyway is best for mysql schema migration history.
   supermonk-flyway:
-      container_name: supermonk-flyway
-      image: boxfuse/flyway
-      command: -url=jdbc:mysql://supermonk-mysql:3306/test?verifyServerCertificate=false&useSSL=true -schemas=test -user=root -password=P@ssw0rd migrate
-      volumes:
-       - "./sql:/flyway/sql"
-      depends_on:
-       - supermonk-mysql
-       - supermonk-redis
+    container_name: supermonk-flyway
+    image: boxfuse/flyway
+    command: -url=jdbc:mysql://supermonk-mysql:3306/ecommerce?verifyServerCertificate=false&useSSL=true -schemas=ecommerce -user=root -password=P@ssw0rd migrate
+    volumes:
+      - "./sql:/flyway/sql"
+    depends_on:
+      - supermonk-mysql
+      - supermonk-redis
 
-networks:
-  redis-net:
-  mysql-net:
-
-volumes:
-  redis-data:
+#networks:
+#  redis-net:
+#  mysql-net:
+#
+#volumes:
+#  redis-data:

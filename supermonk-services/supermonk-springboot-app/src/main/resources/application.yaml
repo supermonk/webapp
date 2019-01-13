@@ -1,6 +1,6 @@
 spring:
   application:
-    name: supermonk-spring-template
+    name: supermonk-webapp-store
 
 server:
   port: 8301
