@@ -1,12 +1,25 @@
-spring:
-  application:
-    name: supermonk-webapp-store
-
 server:
   port: 8301
 
-redis:
-  config:
-    expiryseconds: 20
-
 env: dev
+
+redis:
+  host: 127.0.0.1
+  port: 6379
+  config:
+    expiryseconds: 86400
+
+spring:
+  application:
+    name: supermonk-webapp-store
+  cache:
+    type: redis
+
+  datasource:
+    rds:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: "jdbc:mysql://supermonk-mysql:3306/ecommerce?verifyServerCertificate=false&useSSL=true"
+      username: root
+      password: P@ssw0rd
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect

@@ -44,7 +44,7 @@ docker-compose up -d
 cd ..
 
 print_something_red "Waiting_for_elastic"
-sleep 60
+sleep 30
 print_something_red "Creating_Index_SPRINGBOOT_LOGS"
 
 curl -H 'Content-Type: application/json' -X PUT -d '{
@@ -77,12 +77,16 @@ echo "\n"
 
 echo "GO TO http://localhost:5601/app/kibana#/management?_g=() and do regular stuff, not able to automate yet"
 
-#curl -X POST "http://localhost:9200/.supermonk/doc/springboot" -H 'Content-Type: application/json' -d'
-#{
-#  "type" : "index-pattern",
-#  "index-pattern" : {
-#    "title": "supermonk",
-#    "timeFieldName": "execution_time"
-#  }
-#}'
+curl -X POST "http://localhost:9200/.supermonk/doc/springboot" -H 'Content-Type: application/json' -d'
+{
+  "type" : "index-pattern",
+  "index-pattern" : {
+    "title": "supermonk",
+    "timeFieldName": "execution_time"
+  }
+}'
+
+cd docker-database
+docker-compose run supermonk-flyway
+cd ..
 

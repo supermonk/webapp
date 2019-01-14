@@ -24,7 +24,7 @@
 
 
 	<!-- appenders -->
-	
+	<!-- change this to localhost:9200 if running from eclipse -->
 	<appender name="ES" class="ch.qos.logback.ext.loggly.LogglyAppender">
 	    <endpointUrl>http://supermonk-elk:9200/supermonk/webapp?pipeline=logback</endpointUrl>
 	    <layout class="ch.qos.logback.contrib.json.classic.JsonLayout">
@@ -80,18 +80,12 @@
 	</appender>
 
 
-
-
-
 	<!-- root logger -->
 	<root level="INFO">
-		<!-- <appender-ref ref="CONSOLE" /> -->
+		<appender-ref ref="CONSOLE" />
 		<appender-ref ref="FILE" />
 		<appender-ref ref="ElasticJson" />
 		<appender-ref ref="ES"/>
-
 	</root>
-	<!-- <logger name="ElasticJson" level="INFO" additivity="false"> <appender-ref 
-		ref="ElasticJson" /> </logger> -->
 
 </configuration>

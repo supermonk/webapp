@@ -10,12 +10,9 @@ services:
              - /tmp/webapp/var:/var/log
         networks:
               - docker-monitoring_elk-net
-              - docker-database_redis-net
-              - docker-database_mysql-net
+              - docker-database_default
 networks:
   docker-monitoring_elk-net:
     external: true
-  docker-database_redis-net:
-    external: true
-  docker-database_mysql-net:
+  docker-database_default:
     external: true

@@ -17,12 +17,12 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<start-class>com.supermonk.cloud.Application</start-class>
 		<java.version>1.8</java.version>
-		<spring.boot.version>2.0.5.RELEASE</spring.boot.version>
+		<spring.boot.version>2.1.2.RELEASE</spring.boot.version>
 		<docker.version>1.0</docker.version>
 		<!-- Log Appenders -->
 		<org.apache.kafka.version>0.10.1.1</org.apache.kafka.version>
 		<kafka.appender.version>0.1.0</kafka.appender.version>
-		<redis.spring>2.0.4.RELEASE</redis.spring>
+		<redis.spring>2.1.2.RELEASE</redis.spring>
 
 		<!-- Swagger -->
 		<swagger.version>2.9.2</swagger.version>
@@ -67,6 +67,35 @@
 		</dependency>
 		<!-- Swagger -->
 
+		<!--database -->
+		<!-- https://mvnrepository.com/artifact/org.springframework.data/spring-data-jpa -->
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-jpa</artifactId>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+		</dependency>
+		<!-- Jaxb -->
+		<dependency>
+			<groupId>javax.xml.bind</groupId>
+			<artifactId>jaxb-api</artifactId> 
+		</dependency>
+
+		<dependency>
+			<groupId>org.glassfish.jaxb</groupId>
+			<artifactId>jaxb-runtime</artifactId> 
+		</dependency>
+
+
+
 		<!-- Redis -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -93,7 +122,6 @@
 			<artifactId>logback-jackson</artifactId>
 			<version>0.1.5</version>
 		</dependency>
-
 
 
 
@@ -173,7 +201,6 @@
 					<copyright>Supermonk </copyright>
 					<group>Supermonk</group>
 					<name>${environment}-${project.artifactId}</name>
-					<release>${perforce_cl}.${build_number}</release>
 					<repackJars>false</repackJars>
 					<mappings>
 						<mapping>
