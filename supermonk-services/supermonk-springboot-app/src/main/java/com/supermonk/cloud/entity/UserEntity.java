@@ -31,6 +31,8 @@ public class UserEntity {
 	@JoinColumn(name = "addressId", referencedColumnName = "id", nullable = false, updatable = true, foreignKey = @ForeignKey(name = "fkAddress"))
 	private AddressEntity addressEntity;
 
+
+
 	public String getUserId() {
 		return userId;
 	}
