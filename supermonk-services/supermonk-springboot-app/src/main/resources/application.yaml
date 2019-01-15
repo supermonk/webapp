@@ -23,3 +23,13 @@ spring:
       password: P@ssw0rd
   jpa:
     database-platform: org.hibernate.dialect.MySQLDialect
+
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG
+        type:
+          descriptor:
+            sql:
+              BasicBinder: TRACE
